@@ -5,9 +5,6 @@ const puppeteer = require('puppeteer');
 const openai = new OpenAI({
     apiKey: process.env.OPENAI_API_KEY,
 });
-const selectRandomElement = (arr) => {
-    return arr[Math.floor(Math.random() * arr.length)];
-}
 const answer = async (req, res) => {
     const { applicant, job, note } = req.body;
     const { name, email, phone, address, education, experience } = applicant
@@ -37,34 +34,35 @@ const answer = async (req, res) => {
             <head>
                 <style>
                     body { 
-                        font-family: ${selectRandomElement('Arial, sans-serif', 'Georgia, serif', 'Helvetica, sans-serif', 'Times New Roman, serif', 'Verdana, sans-serif')}; 
-                        padding: ${selectRandomElement('25px', '30px', '20px', '15px')}; 
-                        font-size: ${selectRandomElement('11px', '12px', '13px', '15px')}; 
+                        font-family: Arial, sans-serif; 
+                        padding: 25px; 
+                        font-size: 12px; 
                         line-height: 1.6; 
                         margin: 0; 
                     }
                     h1 {
-                        text-align: 'center'; 
-                        color: ${selectRandomElement('#2e6c80ff', '#4a90e2ff', '#26584dff', '#9013feff', '#74511aff')}; 
-                        margin-bottom: ${selectRandomElement('25px', '30px', '20px', '15px')};
-                        page-break-after: avoid;}
+                        text-align: center; 
+                        color: #48175dff; 
+                        margin-bottom: 20px;
+                        page-break-after: avoid;
+                    }
                      h2 { 
-                        color: ${selectRandomElement('#2e6c80ff', '#232f3dff', '#26584dff', '#2c1a3cff', '#372303ff')}; 
+                        color: #2f2f2fff; 
                         page-break-after: avoid; 
                         text-align :center;
                     }
                     h3 { 
-                        color: ${selectRandomElement('#186b87ff', '#3e628bff', '#13372fff', '#9013feff', '#75664dff')}; 
+                        color: #4a4a4aff; 
                         page-break-after: avoid; 
                         text-align :center;
                     }
                     h4 { 
-                        color: ${selectRandomElement('#081f26ff', '#828384ff', '#5f6161ff', '#474747ff', '#726e68ff')}; 
+                        color: #d08181ff; 
                         page-break-after: avoid; 
                         text-align :center;
                     }
                     pre { 
-                        background: ${selectRandomElement('#2e6c80ff', '#4a90e2ff', '#26584dff', '#9013feff', '#74511aff')}; 
+                        background: #f4f4f4; 
                         padding: 10px; 
                         white-space: pre-wrap; 
                         word-wrap: break-word; 
